@@ -14,27 +14,35 @@ function renderUpgrades() {
     const container = document.getElementById('upgrades');
     container.innerHTML = '';
 
-    upgrades.forEach(upgrade => {
-        const div = document.createElement('div');
-        div.innerHTML = `
-        <strong>${upgrade.name}</strong>
-        const: ${upgrade.cost} | +${upgrade.bonus} per click
-        <button onclick="buyUpgrade(${upgrade.id})">Buy</button>
-        `;
-        container.appendChild(div);
-    });
+   upgrades.forEach(upgrade => {
+  const div = document.createElement('div');
+
+  const button = document.createElement('button');
+  button.textContent = 'Buy';
+  button.onclick = () => buyUpgrade(upgrade.id);
+  button.disabled = score < upgrade.cost;
+
+  div.innerHTML = `
+    <strong>${upgrade.name}</strong>
+    Cost: ${upgrade.cost} | +${upgrade.bonus} per click
+  `;
+  div.appendChild(button);
+  container.appendChild(div);
+}); 
 }
 
-renderUpgrades();
 
 function updateDisplay() {
     document.getElementById('score-display').textContent = 'Positions: ' + score;
     document.getElementById('rate-display').textContent = 'Positions per brew: ' + pointsPerClick;
+    
+
 }
 
 document.getElementById('click-btn').addEventListener('click', function() {
     score += pointsPerClick;
     updateDisplay();
+    renderUpgrades();
 });
 
 function buyUpgrade(id) {
