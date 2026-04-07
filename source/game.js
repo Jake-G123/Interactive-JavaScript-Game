@@ -2,12 +2,12 @@ let score=0;
 let pointsPerClick=1;
 
 const upgrades = [
-  { id: 1, name: "Better Mouse",    cost: 10,  bonus: 1  },
-  { id: 2, name: "Click Farm",      cost: 75,  bonus: 5  },
-  { id: 3, name: "Robot Assistant", cost: 300, bonus: 20 },
-  { id: 4, name: "test",            cost: 500,  bonus: 30  },
-  { id: 5, name: "test2",           cost: 750,  bonus: 50  },
-  { id: 6, name: "test3",           cost: 1000, bonus: 100 },
+  { id: 1, name: "Emberroot Extract",    cost: 10,  bonus: 1  },
+  { id: 2, name: "Glimmerdew Vial",      cost: 75,  bonus: 5  },
+  { id: 3, name: "Crushed Moonpetal",    cost: 300, bonus: 20 },
+  { id: 4, name: "Arcane Sap Flask",     cost: 500,  bonus: 30  },
+  { id: 5, name: "Frostcap Essence",     cost: 750,  bonus: 50  },
+  { id: 6, name: "Dragonspice Infusion", cost: 1000, bonus: 100 },
 ];
 
 function renderUpgrades() {
